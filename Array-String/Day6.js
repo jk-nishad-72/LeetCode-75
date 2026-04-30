@@ -1,6 +1,24 @@
+/*345. Reverse Vowels of a String
+ * @param {string} s
+ * @return {string}
+ */
+var reverseVowels = function(s) {
+    
+    let vowels = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'])
+    let chars    = s.split('');
 
+    let i = 0, j = chars.length - 1;
+    while (i < j) {
+        while (i < j && !vowels.has(chars[i])) i++;
+        while (i < j && !vowels.has(chars[j])) j--;
+        if (i < j) {
+            [chars[i], chars[j]] = [chars[j], chars[i]];
+            i++;
+            j--;
+        }   
+    }
+    return chars.join('');
+    
+};
 
-console.log('leetcode 75 : Day 6 : Array String');
-
-// 344. Reverse String
-// https://leetcode.com/problems/reverse-string/
+console.log(reverseVowels("IceCreAm"));
