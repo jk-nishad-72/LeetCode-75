@@ -20,20 +20,32 @@ var maxOperations = function(nums, k) {
 
     return count;
 
-    //        let map = new Map();
-    //   let ans = 0
-    // for(let i =0;i<nums.length;i++){
-    //     if(map.has(k-nums[i])){
-         
-    //      map.delete(k-nums[i])
-    //        ans++ 
-          
-    //     }else{
-    //         map.set(nums[i],i)
-    //     }
-    // }
-    // return ans
+     
 };
 
-console.log(maxOperations([1,2,3,4], 5)) // 2
-console.log(maxOperations([3,1,3,4,3], 6)) // 1
+
+function optimised(nums, k) {
+    const freq = new Map();
+    let count = 0;
+
+    for (let num of nums) {
+        const complement = k - num;
+
+        if (freq.get(complement) > 0) {
+            // Found a valid pair!
+            count++;
+            freq.set(complement, freq.get(complement) - 1); // consume it
+        } else {
+            // Store this number for future pairing
+            freq.set(num, (freq.get(num) || 0) + 1);
+        }
+    }
+
+    return count;
+}
+console.log(optimised([1,2,3,4], 5));
+console.log(optimised([3,1,3,4,3], 6)); // 1
+
+
+// console.log(maxOperations([1,2,3,4], 5)) // 2
+// console.log(maxOperations([3,1,3,4,3], 6)) // 1
