@@ -1,4 +1,5 @@
 /**1456. Maximum Number of Vowels in a Substring of Given Length
+ *  Max Sum Subarray of size K  gff Question 
  * @param {string} s
  * @param {number} k
  * @return {number}
@@ -47,3 +48,39 @@ var maxVowels = function(s, k) {
 console.log(maxVowels("abciiidef", 3)) // 3
 console.log(maxVowels("aeiou", 2)) // 2
 console.log(maxVowels("leetcode", 3)) // 2
+
+
+
+
+
+
+/**Max Sum Subarray of size K
+
+ * @param {number[]} arr
+ * @param {number} k
+ * @return {number}
+ */
+
+class Solution {
+    maxSubarraySum(arr, k) {
+        // code here
+        
+        let i = 0;
+        let j = 0;
+        let sum = 0;
+        let max = -Infinity;
+        while( j < arr.length){
+            
+             sum += arr[j] 
+             
+             if(j - i +1 === k){
+                  max = Math.max( max  , sum)
+                  sum -= arr[i]
+                  i++
+             }
+             j++
+        }
+        
+        return max
+    }
+}
