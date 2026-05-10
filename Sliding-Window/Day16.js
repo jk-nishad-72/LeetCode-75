@@ -1,4 +1,24 @@
+/**1004. Max Consecutive Ones III
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var longestOnes = function(nums, k) {
+        let i = 0, zeroCount = 0, maxLen = 0;
 
+    for (let j = 0; j < nums.length; j++) {
+        if (nums[j] === 0) zeroCount++;
+
+        while (zeroCount > k) {
+            if (nums[i] === 0) zeroCount--;
+            i++;
+        }
+
+        maxLen = Math.max(maxLen, j - i + 1);
+    }
+
+    return maxLen;
+};
 
 
 
