@@ -19,10 +19,10 @@ var findDifference = function(nums1, nums2) {
 
     
     for(let num of set2){
-
         if(!set1.has(num)) ans2.push(num)
-        
     }
+
+     
 
     
       return [ans1 , ans2]
