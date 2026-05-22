@@ -44,3 +44,4 @@ console.log(obj.ping(100)) // returns 2
 console.log(obj.ping(3001)) // returns 3
 console.log(obj.ping(3002)) // returns 3
 
+
