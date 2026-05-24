@@ -1,5 +1,28 @@
+/** 374. Guess Number Higher or Lower
+ * Forward declaration of guess API.
+ * @param {number} num   your guess
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
+ *               otherwise return 0
+ * var guess = function(num) {}
+ */
 
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var guessNumber = function(n) {
+    
+    let first = 1; let last = n;
 
+    while(first <= last ){
+    let mid = Math.floor((first + last)/2 );
+    let result = guess(mid);// -1 | 0 | 1
+    if(result === 0) return mid;
+    else if (result === -1) last = mid-1;
+    else first = mid + 1;
+    }
+};
 
-console.log('Day30 of LC75 challenge ')
+console.log(guessNumber(10)) // pick 6 
 
