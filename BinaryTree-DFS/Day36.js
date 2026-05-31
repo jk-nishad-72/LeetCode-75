@@ -10,6 +10,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
+
 var maxDepth = function(root) {
     if(root == null ) return 0;
     let left = maxDepth(root.left)
