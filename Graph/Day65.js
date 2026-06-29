@@ -48,3 +48,5 @@ var calcEquation = function(equations, values, queries) {
 };
 
 console.log(calcEquation);
+
+
